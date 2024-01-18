@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "683528231911",
+    "project_id": "leble-app",
+    "storage_bucket": "leble-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:683528231911:android:9b99d86fbfbeff6b34fb42",
+        "android_client_info": {
+          "package_name": "com.example.leble_test_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjHc0GmfzPFEMhjTJo6XA9P2hWYV4qbrw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
