@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:leble_test_1/utils/global.colors.dart';
 import 'package:leble_test_1/view/controllers/signup.controller.dart';
 import 'package:leble_test_1/view/login.view.dart';
+import 'package:leble_test_1/view/repository/user_models.dart';
+import 'package:leble_test_1/view/repository/user_repository/user_repository.dart';
 import 'package:leble_test_1/view/widgets/google.button.dart';
 import 'package:leble_test_1/view/widgets/text.form.global.dart';
 
@@ -11,6 +13,7 @@ class SignUpView extends StatelessWidget {
 
   final _formKey = GlobalKey<FormState>();
   final SignUpController controller = Get.put(SignUpController());
+  final UserRepository userRepository = Get.put(UserRepository());
 
   @override
   Widget build(BuildContext context) {
@@ -94,11 +97,19 @@ class SignUpView extends StatelessWidget {
                             controller.emailController.text.trim(),
                             controller.passwordController.text.trim(),
                           );
+                          final user = UserModel(
+                            email: controller.emailController.text.trim(),
+                            password: controller.passwordController.text.trim(),
+                            fullName: controller.fullNameController.text.trim(),
+                            phoneNumber: controller.phoneController.text.trim(),
+                          );
+                          userRepository.createUser(
+                              user); // Use userRepository to create the user
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: globalColors.textColor,
-                        onPrimary: Colors.white,
+                        foregroundColor: Colors.white,
+                        backgroundColor: globalColors.textColor,
                         elevation: 10, // Adjust the elevation as needed
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(6),

@@ -21,7 +21,7 @@ class AuthenticationRepository extends GetxController {
 
   void _setInitialScreen(User? user) {
     if (user == null) {
-      Get.offAll(() => const HomeScreen());
+      Get.offAll(() => HomeScreen());
     } else {
       Get.offAll(() => SignUpView()); // Fixed the function name and import
     }
@@ -33,7 +33,7 @@ class AuthenticationRepository extends GetxController {
       await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       firebaseUser.value != null
-          ? Get.offAll(() => const HomeScreen())
+          ? Get.offAll(() => HomeScreen())
           : Get.to(() => const SplashView());
     } on FirebaseAuthException catch (e) {
       final ex = signUpWithEmailAndPasswordFailure.code(e.code);
